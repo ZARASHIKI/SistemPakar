@@ -21,8 +21,7 @@
     <div class="sidebar">
         <a href="{{url('/')}}" class="active">Home</a>
         <a href="{{url('konsul')}}">Konsultasi</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        
     </div>
 
     <!-- Main content -->

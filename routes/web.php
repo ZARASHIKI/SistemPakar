@@ -15,3 +15,5 @@ use App\Http\Controllers\pakarcontroller;
 
 Route::get('/',[pakarcontroller::class,'index']);
 Route::get('konsul',[pakarcontroller::class,'konsul']);
+Route::post('input',[pakarcontroller::class,'simpan']);
+Route::post('hapus',[pakarcontroller::class,'hapus_pertanyaan']);

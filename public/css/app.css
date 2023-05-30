@@ -68,4 +68,6 @@
     clear: both;
     display: table;
   }
-  
+  .br{
+    display: flex;
+}
