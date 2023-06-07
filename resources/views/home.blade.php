@@ -13,8 +13,14 @@
                 <th>Gejala</th>
             </tr>
         </thead>
+        @foreach ($penyakit as $item)
         <tbody>
-            
+            <tr>
+                <td>
+                    {{$item->penyakit}}
+                </td>
+            </tr>
         </tbody>
+        @endforeach
     </table>
 @endsection

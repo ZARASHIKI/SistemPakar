@@ -22,13 +22,13 @@
                             @csrf
                             <div class="br">
                             <div class="form-check" style="margin-right: 30px">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="1">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="ya">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     YA
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="tidak">
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Tidak
                                 </label>
@@ -48,4 +48,16 @@
             @endif
         </tbody>
     </table>
+    <div><h1>Penyakit Tumbuhan Anda</h1></div>
+    @if(isset($penyakit))
+    <div>
+        <h4>Hasil Diagnosa:</h4>
+        <ul>
+            @foreach($penyakit as $item)
+                <li>{{ $item->penyakit }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @endsection

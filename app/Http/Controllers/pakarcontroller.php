@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\gejala;
+use App\Models\penyakit;
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -9,29 +11,43 @@ use Illuminate\Support\Facades\DB;
 class pakarcontroller extends Controller
 {
     function index(){
-        return view("home");
+        return view("home",["penyakit"=>penyakit::all()]);
     }
 
-
     function konsul(){
-        $users = DB::table('tb_gejala')
-            ->whereNotIn('id_gejala', function ($query) {
+    $users = gejala::whereNotIn('id_gejala', function ($query) {
             $query->select('id_gejala')
             ->from('tb_pertanyaan');
     })
     ->get();
-        return view("konsul",compact('users'));
-    }
 
+    $penyakit = penyakit::join('tb_rule', 'tb_penyakit.id_penyakit', '=', 'tb_rule.id_rule')
+        ->join('tb_pertanyaan', 'tb_rule.id_gejala', '=', 'tb_pertanyaan.id_gejala')
+        ->where('tb_pertanyaan.jawaban', '=', 'ya')
+        ->select('tb_penyakit.penyakit')
+        ->distinct()
+        ->get();
+        
+        return view("konsul",compact('users','penyakit'));
+    }
 
     function simpan(Request $request)
     {
         $flexRadioDefault = $request->input('flexRadioDefault');
     
-        if ($flexRadioDefault == '1') {
+        if ($flexRadioDefault == 'ya') {
             $id_gejala = $request->input('id_table1');
-            DB::table('tb_pertanyaan')->insert([
-                'id_gejala' => $id_gejala
+            $jawaban = "ya";
+            pertanyaan::insert([
+                'id_gejala' => $id_gejala,
+                "jawaban"=> $jawaban
+            ]);
+        }elseif ($flexRadioDefault == 'tidak') {
+            $id_gejala = $request->input('id_table1');
+            $jawaban = "Tidak";
+            pertanyaan::insert([
+                'id_gejala' => $id_gejala,
+                "jawaban"=> $jawaban
             ]);
         }
     
@@ -40,7 +56,7 @@ class pakarcontroller extends Controller
     
     function hapus_pertanyaan()
     {
-        DB::table('tb_pertanyaan')->truncate();
+        $hapus = pertanyaan::truncate();
         return redirect('konsul');
     }
 }
