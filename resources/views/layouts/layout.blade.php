@@ -19,8 +19,8 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="{{url('/')}}" class="active">Home</a>
-        <a href="{{url('konsul')}}">Konsultasi</a>
+        <a href="{{url('/')}}"class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
+        <a href="{{url('konsul')}}"class="{{ request()->is('konsul') ? 'active' : '' }}">Konsultasi</a>
         
     </div>
 
