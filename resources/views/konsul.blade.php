@@ -36,7 +36,7 @@
                         </div>
                             <input type="hidden" name="id_table1" value="{{ $users[0]->id_gejala}}">
                             <div class="br">
-                            <button type="submit" class="btn btn-success" style="margin-top: 10px;margin-right:30px">Process</button>
+                            <button type="submit" class="btn btn-success" style="margin-top: 10px;margin-right:30px" onclick="validateForm(event)">Process</button>
                         </form>
                         <form action="{{ url('hapus') }}" method="post">
                             @csrf
@@ -47,6 +47,27 @@
                 </td>
             @endif
         </tbody>
+        <script>
+            function validateForm(event) {
+                event.preventDefault(); // Mencegah submit form secara langsung
+        
+                var radios = document.getElementsByName("flexRadioDefault");
+                var isChecked = false;
+        
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        isChecked = true;
+                        break;
+                    }
+                }
+        
+                if (!isChecked) {
+                    alert("Silakan pilih salah satu opsi (YA atau Tidak).");
+                } else {
+                    document.getElementById("inputForm").submit();
+                }
+            }
+        </script>
     </table>
     <div><h1>Penyakit Tumbuhan Anda</h1></div>
     @if(isset($penyakit))

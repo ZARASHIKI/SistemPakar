@@ -8,9 +8,7 @@
     <table >
         <thead>
             <tr>
-                <th>Nama Penyakit</th>
-                <th>Deskripsi</th>
-                <th>Gejala</th>
+                <th>Nama Penyakit :</th>
             </tr>
         </thead>
         @foreach ($penyakit as $item)
