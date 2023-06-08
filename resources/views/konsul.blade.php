@@ -18,7 +18,7 @@
                 </tr>
                 <td>
                     <h4>
-                        <form action="{{ url('input') }}" method="post">
+                        <form action="{{ url('input') }}" method="post" id="inputForm">
                             @csrf
                             <div class="br">
                             <div class="form-check" style="margin-right: 30px">
