@@ -3,7 +3,7 @@
 @section('title', 'Sistem Pakar')
 
 @section('content')
-    <h1>Sistem Pakar Penyakit Tumbuhan Hidroponik</h1>
+    <h1 style="text-align: center">Sistem Pakar Penyakit Tumbuhan Hidroponik</h1>
 
     <table >
         <thead>

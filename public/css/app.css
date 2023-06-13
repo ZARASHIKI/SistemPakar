@@ -3,14 +3,14 @@
     height: 60px;
     background-color: #333;
     color: white;
-    justify-content: space-between;
+    justify-content:space-evenly;
     align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1;
-    text-align: center;
+    display: flex;
   }
   
   /* Title bar brand */

@@ -14,7 +14,9 @@
 <body>
     <!-- Title bar -->
     <div class="title-bar">
-        <div class="title-bar-brand">Sistem Pakar</div>
+        <div class="title-bar-brand">Agus Yusuf Noviyanto</div>
+        <div class="title-bar-brand" style="text-align: center">Sistem Pakar</div>
+        <div class="title-bar-brand">42030043</div>
     </div>
 
     <!-- Sidebar -->
