@@ -21,7 +21,7 @@ class pakarcontroller extends Controller
     })
     ->get();
 
-    $penyakit = penyakit::join('tb_rule', 'tb_penyakit.id_penyakit', '=', 'tb_rule.id_rule')
+    $penyakit = penyakit::join('tb_rule', 'tb_penyakit.id_penyakit', '=', 'tb_rule.id_penyakit')
         ->join('tb_pertanyaan', 'tb_rule.id_gejala', '=', 'tb_pertanyaan.id_gejala')
         ->where('tb_pertanyaan.jawaban', '=', 'ya')
         ->select('tb_penyakit.penyakit')
